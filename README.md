@@ -7,9 +7,9 @@
 StreamElements uses the [JWT](https://jwt.io/) standard for authorizing requests to our api.
 You can get your very own token right here xd [streamelements.com](https://streamelements.com/dashboard/account/information)
 
-Calling GET /v1/appusers using a jwt
+Calling GET kappa/v1/users/me using a jwt
 ```json
-curl https://api.streamelements.com/v1/users/me \
+curl https://api.streamelements.com/kappa/v1/users/me \
      -H 'authorization: Bearer YOUR-TOKEN'
 ```
 
@@ -85,11 +85,11 @@ In addition to the status code, the HTTP body of the response will also contain 
 
 - [`Activities`](activities.md)
 - [`Logs`](logs.md)
-- [Tipping](tipping.md)
-- [Tips](tips.md)
-- [Uploads](uploads.md)
-- [Users](users.md)
-- [Loyalties](loyalties.md)
-- [Points](points.md)
-- [Sessions](sessions.md)
-- [Chatstats](chatstats.md)
+- [`Tipping`](tipping.md)
+- [`Tips`](tips.md)
+- [`Uploads`](uploads.md)
+- [`Users`](users.md)
+- [`Loyalties`](loyalties.md)
+- [`Points`](points.md)
+- [`Sessions`](sessions.md)
+- [`Chatstats`](chatstats.md)

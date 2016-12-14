@@ -225,34 +225,34 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
         <tr>
             <th>Userlevels</th>
             <th>Number</th>
-            <th width=90%>Description</th>
+            <th width=70%>Description</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><code>broadcaster</code></td>
+            <td><code>Broadcaster</code></td>
             <td>1500</td>
-            <td>Channel Owner or Manager</td>
+            <td>Channel Owner</td>
         </tr>
         <tr>
-            <td><code>super_moderator</code></td>
+            <td><code>Super Moderator</code></td>
             <td>1000</td>
-            <td>Trustworthy Moderator</td>
+            <td>Trustworthy Moderators or Managers</td>
         </tr>
         <tr>
-            <td><code>moderator</code></td>
+            <td><code>Moderator</code></td>
             <td>500</td>
             <td>Channel Moderator</td>
         </tr>
         <tr>
-            <td><code>subscriber</code></td>
-            <td>250</td>
-            <td>Channel Subscriber</td>
-        </tr>
-        <tr>
-            <td><code>regulars</code></td>
+            <td><code>Regulars</code></td>
             <td>300</td>
             <td>Regulars</td>
+        </tr>
+        <tr>
+            <td><code>Subscriber</code></td>
+            <td>250</td>
+            <td>Channel Subscriber</td>
         </tr>
     </tbody>
 </table>

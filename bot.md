@@ -219,3 +219,157 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 ]
 ```
 
+## User Level
+<table>
+    <thead>
+        <tr>
+            <th>Userlevels</th>
+            <th>Number</th>
+            <th width=70%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Broadcaster</code></td>
+            <td>1500</td>
+            <td>Channel Owner</td>
+        </tr>
+        <tr>
+            <td><code>Super Moderator</code></td>
+            <td>1000</td>
+            <td>Trustworthy Moderators or Managers</td>
+        </tr>
+        <tr>
+            <td><code>Moderator</code></td>
+            <td>500</td>
+            <td>Channel Moderator</td>
+        </tr>
+        <tr>
+            <td><code>Regulars</code></td>
+            <td>300</td>
+            <td>Regulars</td>
+        </tr>
+        <tr>
+            <td><code>Subscriber</code></td>
+            <td>250</td>
+            <td>Channel Subscriber</td>
+        </tr>
+    </tbody>
+</table>
+
+## `POST /bot/levels`
+
+Create a new permission for the current channel
+
+### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th width=90%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>username</code></td>
+            <td>String</td>
+            <td>Required</td>
+            <td>Pass the username</td>
+        </tr>
+        <tr>
+            <td><code>level</code></td>
+            <td>enum</td>
+            <td>Required</td>
+            <td>The <a href="#user-level">user levels</a> required to use the command.</td>
+        </tr>
+    </tbody>
+</table>
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X POST https://api.streamelements.com/kappa/v1/bot/levels \
+-D '{"username": "streamelements", "level": 1000}'
+```
+
+### Example Response
+
+```json
+{
+  "username": "streamelements",
+  "lastActive": "0001-01-01T00:00:00Z",
+  "moderator": false,
+  "subscriber": false,
+  "level": 1000
+}
+```
+
+### Error
+
+```json
+{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "Validation Error",
+  "details": [
+    {
+      "path": "username",
+      "message": "\"username\" must be a string"
+    },
+    {
+      "path": "level",
+      "message": "\"level\" must be a number"
+    }
+  ]
+}
+```
+
+## `DELETE /bot/levels/:username`
+
+### Parameters
+<table>
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th width=90%>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>username</code></td>
+            <td>String</td>
+            <td>Required</td>
+            <td>Pass the username</td>
+        </tr>
+    </tbody>
+</table>
+
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X DELETE https://api.streamelements.com/kappa/v1/bot/levels/streamelements
+```
+
+### Example Response
+
+```json
+{
+  "statusCode": 201,
+  "message": "Removed user streamelements"
+}
+```
+### Errors
+
+```json
+{
+  "statusCode": 404,
+  "error": "Not Found"
+}
+```

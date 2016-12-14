@@ -10,7 +10,7 @@ You can get your very own token right here xd [streamelements.com](https://strea
 Calling GET kappa/v1/users/me using a jwt
 ```json
 curl https://api.streamelements.com/kappa/v1/users/me \
-     -H 'authorization: Bearer YOUR-TOKEN'
+     -H 'authorization: Bearer JWT-TOKEN'
 ```
 
 ### Errors

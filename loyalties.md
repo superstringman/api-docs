@@ -1,64 +1,25 @@
 # Loyalties
 
+## Overview
+|Endpoints|Description|
+|----------|----------|
+|[`GET /loyalties`](#loyalties)|Returns an object with information about your loyalties|
+|[`GET /loyalties/:channel`](#loyalties+)|Returns an object with information about someone's loyalties|
+
 ### Properties
-<table>
-  <thead>
-    <tr>
-      <th>Fields</th>
-      <th>Type</th>
-      <th width=90%>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>name</td>
-      <td>String</td>
-      <td>Name of the currency. ( default 'points', maximum 30 )</td>
-    </tr>
-    <tr>
-      <td>enabled</td>
-      <td>Boolean</td>
-      <td>If it's enabled in the chat ( default true )</td>
-    </tr>
-    <tr>
-      <td>amount</td>
-      <td>Number</td>
-      <td>Amount of points earned every 10 minutes ( default 5, minimum 1, maximum 100 )</td>
-    </tr>
-    <tr>
-      <td>subscriberMultiplier</td>
-      <td>Number</td>
-      <td>What subs get extra (<i>amount</i> * X) ( default 3, minimum 1, maximum 10 )</td>
-    </tr>
-    <tr>
-      <td>bonuses</td>
-      <td>Object</td>
-      <td>Contains information about the bonus points</td>
-    </tr>
-    <tr>
-      <td>bonuses.cheer</td>
-      <td>Number</td>
-      <td>Bonus on cheer ( default 0, minimum 1, maximum 1000 )</td>
-    </tr>
-    <tr>
-      <td>bonuses.subscriber</td>
-      <td>Number</td>
-      <td>Bonus on subscribe ( default 0, minimum 1, maximum 1000 )</td>
-    </tr>
-    <tr>
-      <td>bonuses.tip</td>
-      <td>Number</td>
-      <td>Bonus on tip ( default 0, minimum 1, maximum 1000 )</td>
-    </tr>
-    <tr>
-      <td>bonuses.follow</td>
-      <td>Number</td>
-      <td>Bonus on follow ( default 0, minimum 1, maximum 1000 )</td>
-    </tr>
-  </tbody>
-</table>
+|Fields|Type|Description|
+|------|----|-----------|
+|name|String|Name of the currency ( default 'points', maximum 30 )|
+|enabled|Boolean|If it's enabled in the chat ( default true )|
+|amount|Number|Amount of points earned every 10 minutes ( default 5, minimum 1, maximum 100 )|
+|subscriberMultiplier|Number|What subs get extra (*amount* * X) ( default 3, minimum 1, maximum 10 )|
+|bonuses|Object|Contains information about the bonus points|
+|bonuses.cheer|Number|Bonus on cheer ( default 0, minimum 1, maximum 1000 )|
+|bonuses.subscriber|Number|Bonus on subscribe ( default 0, minimum 1, maximum 1000 )|
+|bonuses.tip|Number|Bonus on tip ( default 0, minimum 1, maximum 1000 )|
+|bonuses.follow|Number|Bonus on follow ( default 0, minimum 1, maximum 1000 )|
 
-
+<a id="loyalties"></a>
 ## `GET /loyalties`
 :key: Requires authentication  
   
@@ -94,15 +55,16 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 }
 ```
 
+<a id="loyalties+"></a>
 ## `GET /loyalties/:channel`
 :old_key: Requires no authentication  
   
-Returns an object with information about someones loyalties.
+Returns an object with information about someone's loyalties.
 
 ### Example Request
 
 ```bash
-curl -X GET https://api.streamelements.com/kappa/v1/loyalties/streamelements
+curl -X GET https://api.streamelements.com/kappa/v1/loyalties/:channel
 ```
 
 ### Example Response

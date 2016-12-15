@@ -2,11 +2,9 @@
 
 ## `GET /activities`
 
-Returns an object of activities for your channel
+Returns a list of activities sorted by *createdAt*.
 
 ### Example Request
-
-Get everything:  
 
 ```bash
 curl -H 'Authorization:Bearer JWT-TOKEN' \
@@ -37,7 +35,12 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
   }
 ]
 ```
-Get one: 
+
+## `GET /activities/:id`
+
+Returns a single activity
+
+### Example Request
 
 ```bash
 curl -H 'Authorization:Bearer JWT-TOKEN' \

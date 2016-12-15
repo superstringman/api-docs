@@ -1,6 +1,52 @@
 # Activities
 
+## Overview
+|Endpoints|Description|
+|----------|----------|
+|[`GET /activities`](activities.md#get-activities)|Returns a list of activities sorted by *createdAt*|
+|[`GET /activities/:id`](activities.md#get-activitiesid)|Returns a single activity|
+
+### Properties
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+      <th>More</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>follow</td>
+      <td>When someone follows</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>host</td>
+      <td>When you get hosted</td>
+      <td><code>username</code> is hosting you for <code>amount</code> viewers (soon)</td>
+    </tr>
+    <tr>
+      <td>tip</td>
+      <td>When someone tips</td>
+      <td><code>data</code> also has <code>amount</code>, <code>currency</code> (soon) and the <code>message</code></td>
+    </tr>
+    <tr>
+      <td>subscriber</td>
+      <td>When someone subscribes</td>
+      <td><code>data</code> also has <code>amount</code> (in months) and the <code>message</code></td>
+    </tr>
+    <tr>
+      <td>cheer</td>
+      <td>When someone cheers</td>
+      <td><code>data</code> also has <code>amount</code> (in bits) and the <code>message</code></td>
+    </tr>
+  </tbody>
+</table>
+
 ## `GET /activities`
+
+:key: Requires authentication  
 
 Returns a list of activities sorted by *createdAt*.
 
@@ -10,6 +56,8 @@ Returns a list of activities sorted by *createdAt*.
 curl -H 'Authorization:Bearer JWT-TOKEN' \
 -X GET https://api.streamelements.com/kappa/v1/activities
 ```
+
+### Example Response
 
 ```json
 [
@@ -38,6 +86,8 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 ## `GET /activities/:id`
 
+:key: Requires authentication  
+
 Returns a single activity
 
 ### Example Request
@@ -46,6 +96,8 @@ Returns a single activity
 curl -H 'Authorization:Bearer JWT-TOKEN' \
 -X GET https://api.streamelements.com/kappa/v1/activities/:id
 ```
+
+### Example Response
 
 ```json
 {
@@ -60,40 +112,3 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
   "createdAt": "2016-10-07T11:35:37.479Z"
 }
 ```
-
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-      <th>More</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>follow</td>
-      <td>When someone follows</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>tip</td>
-      <td>When someone tips</td>
-      <td><code>data</code> also has <code>amount</code>, <code>currency</code> (soon) and the <code>message</code></td>
-    </tr>
-    <tr>
-      <td>host</td>
-      <td>When you get hosted</td>
-      <td><code>username</code> is hosting you for <code>amount</code> viewers (soon)</td>
-    </tr>
-    <tr>
-      <td>subscriber</td>
-      <td>When someone subscribes</td>
-      <td><code>data</code> also has <code>amount</code>(in months) and the <code>message</code></td>
-    </tr>
-    <tr>
-      <td>cheer</td>
-      <td>When someone cheers</td>
-      <td><code>data</code> also has <code>amount</code>(in bits) and the <code>message</code></td>
-    </tr>
-  </tbody>
-</table>

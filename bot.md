@@ -83,10 +83,10 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 |Action|Description|
 |------|-----------|
-|``join``|Makes the bot join the current user's channel.|
-|``part``|Makes the bot part the current user's channel.|
-|``mute``|Mutes the bot in the current user's channel.|
-|``unmute``|Unmutes the bot in the current user's channel.|
+|`join`|Makes the bot join the current user's channel.|
+|`part`|Makes the bot part the current user's channel.|
+|`mute`|Mutes the bot in the current user's channel.|
+|`unmute`|Unmutes the bot in the current user's channel.|
 
 ### Example Request
 
@@ -113,7 +113,7 @@ Makes the bot send a message in current user's the channel.
 
 |Parameter|Type|Required|Description|
 |------|------|------|-----------|
-|``message``|String|Required|The message to be send in chat.|
+|`message`|String|Required|The message to be send in chat.|
 
 ### Example Request
 
@@ -190,12 +190,12 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 |Userlevels|Level|Description|
 |------|------|-----------|
-|``Broadcaster``|1500|Channel Owner|
-|``Super Moderator``|1000|Trustworthy Moderators or Managers|
-|``Moderator``|500|Channel Moderator|
-|``Regulars``|300|Regulars|
-|``Subscriber``|250|Channel Subscriber|
-|``Everyone``|100|Normal user (Default)|
+|`Broadcaster`|1500|Channel Owner|
+|`Super Moderator`|1000|Trustworthy Moderators or Managers|
+|`Moderator`|500|Channel Moderator|
+|`Regulars`|300|Regulars|
+|`Subscriber`|250|Channel Subscriber|
+|`Everyone`|100|Normal user (Default)|
 
 ## `POST /bot/levels`
 
@@ -205,8 +205,8 @@ Create a new permission for the current channel
 
 |Parameter|Type|Required|Description|
 |------|------|------|-----------|
-|``username``|String|Required|Pass the username|
-|``level``|Enum|Required|The <a href="#user-level">user levels</a> required to use the command.|
+|`username`|String|Required|Pass the username|
+|`level`|Enum|Required|The <a href="#user-level">user levels</a> required to use the command.|
 
 
 ### Example Request
@@ -255,7 +255,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 |Parameter|Type|Required|Description|
 |------|------|------|-----------|
-|``username``|String|Required|Pass the username|
+|`username`|String|Required|Pass the username|
 
 ### Example Request
 

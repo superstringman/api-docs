@@ -3,8 +3,8 @@
 ## Overview
 |Endpoints|Description|
 |----------|----------|
-|[`GET /loyalties`](#loyalties)|Returns an object with information about your loyalties|
-|[`GET /loyalties/:channel`](#loyalties+)|Returns an object with information about someone's loyalties|
+|[`GET /loyalties`](#get-loyalties)|Returns an object with information about your loyalties|
+|[`GET /loyalties/:channel`](#get-loyaltieschannel)|Returns an object with information about someone's loyalties|
 
 ### Properties
 |Fields|Type|Description|
@@ -19,7 +19,6 @@
 |bonuses.tip|Number|Bonus on tip ( default 0, minimum 1, maximum 1000 )|
 |bonuses.follow|Number|Bonus on follow ( default 0, minimum 1, maximum 1000 )|
 
-<a id="loyalties"></a>
 ## `GET /loyalties`
 :key: Requires authentication  
   
@@ -55,7 +54,6 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 }
 ```
 
-<a id="loyalties+"></a>
 ## `GET /loyalties/:channel`
 :old_key: Requires no authentication  
   

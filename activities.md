@@ -48,19 +48,17 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 ```
 
 ```json
-[
-  {
-    "_id": "577c1d1b4d85915c2c121593",
-    "_username": "streamelements",
-    "type": "subscriber",
-    "data": {
-      "username": "user",
-      "amount": 12,
-      "message": "HeyGuys"
-    },
-    "createdAt": "2016-10-07T11:35:37.479Z"
-  }
-]
+{
+  "_id": "577c1d1b4d85915c2c121593",
+  "_username": "streamelements",
+  "type": "subscriber",
+  "data": {
+    "username": "user",
+    "amount": 12,
+    "message": "HeyGuys"
+  },
+  "createdAt": "2016-10-07T11:35:37.479Z"
+}
 ```
 
 <table>

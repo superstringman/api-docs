@@ -3,8 +3,8 @@
 ## Overview
 |Endpoints|Description|
 |----------|----------|
-|[`GET /activities`](#activities)|Returns a list of activities sorted by *createdAt*|
-|[`GET /activities/:id`](#activities+)|Returns a single activity|
+|[`GET /activities`](activities.md#get-activities)|Returns a list of activities sorted by *createdAt*|
+|[`GET /activities/:id`](activities.md#get-activitiesid)|Returns a single activity|
 
 ### Properties
 <table>
@@ -44,16 +44,20 @@
   </tbody>
 </table>
 
-<a id="activities"></a>
 ## `GET /activities`
+
 :key: Requires authentication  
+
 Returns a list of activities sorted by *createdAt*.
 
 ### Example Request
+
 ```bash
 curl -H 'Authorization:Bearer JWT-TOKEN' \
 -X GET https://api.streamelements.com/kappa/v1/activities
 ```
+
+### Example Response
 
 ```json
 [
@@ -80,16 +84,20 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 ]
 ```
 
-<a id="activities+"></a>
 ## `GET /activities/:id`
+
 :key: Requires authentication  
+
 Returns a single activity
 
 ### Example Request
+
 ```bash
 curl -H 'Authorization:Bearer JWT-TOKEN' \
 -X GET https://api.streamelements.com/kappa/v1/activities/:id
 ```
+
+### Example Response
 
 ```json
 {

@@ -2,6 +2,7 @@
 
 
 ## `GET /bot`
+🔒 Requires authentication  
 
 Returns an object with information about the bot.
 
@@ -13,7 +14,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 ```
 
 ### Example Response
-
+🌏
 ```json
 {
     "bot": {

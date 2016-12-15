@@ -224,7 +224,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
     <thead>
         <tr>
             <th>Userlevels</th>
-            <th>Number</th>
+            <th>Level</th>
             <th width=70%>Description</th>
         </tr>
     </thead>
@@ -253,6 +253,11 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
             <td><code>Subscriber</code></td>
             <td>250</td>
             <td>Channel Subscriber</td>
+        </tr>
+        <tr>
+            <td><code>Plep</code></td>
+            <td>100</td>
+            <td>Normal user</td>
         </tr>
     </tbody>
 </table>

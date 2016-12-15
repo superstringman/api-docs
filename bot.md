@@ -80,32 +80,13 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 ## `POST /bot/:action`
 
 ### Parameters
-<table>
-    <thead>
-        <tr>
-            <th>Action</th>
-            <th width=90%>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>join</code></td>
-            <td>Makes the bot join the current user's channel.</td>
-        </tr>
-        <tr>
-            <td><code>part</code></td>
-            <td>Makes the bot part the current user's channel.</td>
-        </tr>
-        <tr>
-            <td><code>mute</code></td>
-            <td>Mutes the bot in the current user's channel.</td>
-        </tr>
-        <tr>
-            <td><code>unmute</code></td>
-            <td>Unmutes the bot in the current user's channel.</td>
-        </tr>
-    </tbody>
-</table>
+
+|Action|Description|
+|------|-----------|
+|``join``|Makes the bot join the current user's channel.|
+|``part``|Makes the bot part the current user's channel.|
+|``mute``|Mutes the bot in the current user's channel.|
+|``unmute``|Unmutes the bot in the current user's channel.|
 
 ### Example Request
 
@@ -129,24 +110,10 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 Makes the bot send a message in current user's the channel.
 
 ### Parameters
-<table>
-    <thead>
-        <tr>
-            <th>Parameter</th>
-            <th>Type</th>
-            <th>Required</th>
-            <th width=90%>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>message</code></td>
-            <td>String</td>
-            <td>Required</td>
-            <td>The message to be send in chat.</td>
-        </tr>
-    </tbody>
-</table>
+
+|Parameter|Type|Required|Description|
+|------|------|------|-----------|
+|``message``|String|Required|The message to be send in chat.|
 
 ### Example Request
 
@@ -220,77 +187,27 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 ```
 
 ## User Level
-<table>
-    <thead>
-        <tr>
-            <th>Userlevels</th>
-            <th>Level</th>
-            <th width=70%>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>Broadcaster</code></td>
-            <td>1500</td>
-            <td>Channel Owner</td>
-        </tr>
-        <tr>
-            <td><code>Super Moderator</code></td>
-            <td>1000</td>
-            <td>Trustworthy Moderators or Managers</td>
-        </tr>
-        <tr>
-            <td><code>Moderator</code></td>
-            <td>500</td>
-            <td>Channel Moderator</td>
-        </tr>
-        <tr>
-            <td><code>Regulars</code></td>
-            <td>300</td>
-            <td>Regulars</td>
-        </tr>
-        <tr>
-            <td><code>Subscriber</code></td>
-            <td>250</td>
-            <td>Channel Subscriber</td>
-        </tr>
-        <tr>
-            <td><code>Everyone</code></td>
-            <td>100</td>
-            <td>Normal user (Default)</td>
-        </tr>
-    </tbody>
-</table>
+
+|Userlevels|Level|Description|
+|------|------|-----------|
+|``Broadcaster``|1500|Channel Owner|
+|``Super Moderator``|1000|Trustworthy Moderators or Managers|
+|``Moderator``|500|Channel Moderator|
+|``Regulars``|300|Regulars|
+|``Subscriber``|250|Channel Subscriber|
+|``Everyone``|100|Normal user (Default)|
 
 ## `POST /bot/levels`
 
 Create a new permission for the current channel
 
 ### Parameters
-<table>
-    <thead>
-        <tr>
-            <th>Parameter</th>
-            <th>Type</th>
-            <th>Required</th>
-            <th width=90%>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>username</code></td>
-            <td>String</td>
-            <td>Required</td>
-            <td>Pass the username</td>
-        </tr>
-        <tr>
-            <td><code>level</code></td>
-            <td>enum</td>
-            <td>Required</td>
-            <td>The <a href="#user-level">user levels</a> required to use the command.</td>
-        </tr>
-    </tbody>
-</table>
+
+|Parameter|Type|Required|Description|
+|------|------|------|-----------|
+|``username``|String|Required|Pass the username|
+|``level``|Enum|Required|The <a href="#user-level">user levels</a> required to use the command.|
+
 
 ### Example Request
 
@@ -335,25 +252,10 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 ## `DELETE /bot/levels/:username`
 
 ### Parameters
-<table>
-    <thead>
-        <tr>
-            <th>Parameter</th>
-            <th>Type</th>
-            <th>Required</th>
-            <th width=90%>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>username</code></td>
-            <td>String</td>
-            <td>Required</td>
-            <td>Pass the username</td>
-        </tr>
-    </tbody>
-</table>
 
+|Parameter|Type|Required|Description|
+|------|------|------|-----------|
+|``username``|String|Required|Pass the username|
 
 ### Example Request
 

@@ -17,44 +17,15 @@ curl https://api.streamelements.com/kappa/v1/users/me \
 
 StreamElements uses standard HTTP status codes to communicate errors
 
-<table>
-    <thead>
-        <tr>
-            <th>Status code</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>200	OK</td>
-            <td>Everything went as planned.</td>
-        </tr>
-        <tr>
-            <td>400	Bad Request</td>
-            <td>Something in your header or request body was malformed.</td>
-        </tr>
-        <tr>
-            <td>401	Unauthorized</td>
-            <td>Necessary credentials were either missing or invalid.</td>
-        </tr>
-        <tr>
-            <td>403	Forbidden</td>
-            <td>Your credentials are valid but you don’t have access to the requested resource.</td>
-        </tr>
-        <tr>
-            <td>404	Not Found</td>
-            <td>The object you’re requesting doesn’t exist.</td>
-        </tr>
-        <tr>
-            <td>429	Too Many Requests</td>
-            <td>You are calling our APIs more frequently than we allow.</td>
-        </tr>
-        <tr>
-            <td>500, 502, 503, 504	Server Errors</td>
-            <td>Something went wrong on our end. </td>
-        </tr>
-    </tbody>
-</table> 
+|Status code|Status text|Description|
+|-----------|-----------|-----------|
+|200|OK|Everything went as planned|
+|400|Bad Request|Something in your header or request body was malformed|
+|401|Unauthorized|Necessary credentials were either missing or invalid|
+|403|Forbidden|Your credentials are valid but you don’t have access to the requested resource|
+|404|Not Found|The object you’re requesting doesn’t exist|
+|429|Too Many Requests|You are calling our APIs more frequently than we allow|
+|5XX|Server Errors|Something went wrong on our end|
 
 In addition to the status code, the HTTP body of the response will also contain a JSON representation of the error.
 

@@ -72,11 +72,11 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 ```json
 {
-    amount: 123,
-    channel: "stylerdev",
-    message: "Added 100 points to user nuuls in channel stylerdev",
-    newAmount: 420,
-    username: "nuuls"
+    "amount": 123,
+    "channel": "stylerdev",
+    "message": "Added 100 points to user nuuls in channel stylerdev",
+    "newAmount": 420,
+    "username": "nuuls"
 }
 ```
 
@@ -96,9 +96,9 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 ```json
 {
-    channel: "stylerdev",
-    message: "nuuls was sucesfully reset in channel stylerdev",
-    username: "nuuls"
+    "channel": "stylerdev",
+    "message": "nuuls was sucesfully reset in channel stylerdev",
+    "username": "nuuls"
 }
 ```
 

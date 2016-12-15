@@ -255,9 +255,9 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
             <td>Channel Subscriber</td>
         </tr>
         <tr>
-            <td><code>Plep</code></td>
+            <td><code>Everyone</code></td>
             <td>100</td>
-            <td>Normal user</td>
+            <td>Normal user (Default)</td>
         </tr>
     </tbody>
 </table>

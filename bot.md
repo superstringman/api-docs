@@ -272,7 +272,323 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
   "message": "Removed user streamelements"
 }
 ```
-### Errors
+
+### Error
+
+```json
+{
+  "statusCode": 404,
+  "error": "Not Found"
+}
+```
+
+# Commands
+
+## Overview
+
+|Endpoints|Description|
+|----------|----------|
+|[`GET /bot/commands`](#get-botcommands)|Returns an array of commands|
+|[`GET /bot/commands/:id`](#get-botcommandsid)|Returns a single command|
+|[`POST /bot/commands`](#post-botcommands)|Create a new bot command|
+|[`PUT /bot/commands/:id`](#put-botcommandsid)|Update the command by passing the id|
+|[`DELETE /bot/commands/:id`](#delete-botcommandsid)|Delete a command by the id|
+
+### Properties
+
+|Fields|Type|Description|
+|------|----|-----------|
+|`enabled`|Boolean|The state of the command ( default true )|
+|`command `|String|The command’s unique name|
+|`reply`|String|The message that will get sent once the command is called|
+|`accessLevel`|Number|The <a href="#user-level">user levels</a> required to use the command ( default 100 )|
+|`type`|String|How should the bot send the message by "say", "reply" or "whisper" ( default "say" )|
+|`cost`|Number|The price of redeeming this command ( default 0, minimum 0, maximum 100000 )|
+|`cooldown`|Object|Contains information about the command|
+|`cooldown.global`|Number|The amount of seconds between each command to prevent spam ( default 5 )|
+|`cooldown.user`|Number|The amount of seconds a user has to wait on calling that command again to prevent spam ( default 15 )|
+|`aliases`|String[]|Create an alias that will trigger the same command ( maximum 5 )|
+
+## `GET /bot/commands`
+
+Returns an array of commands
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X GET https://api.streamelements.com/kappa/v1/bot/commands
+```
+
+### Example Response
+
+```json
+[
+  {
+    "_id": "584da59e601791435f483e86",
+    "updatedAt": "2016-12-11T19:14:38.370Z",
+    "createdAt": "2016-12-11T19:14:38.370Z",
+    "_user": "577c1d1b4d85915c2c121591",
+    "_username": "streamelements",
+    "command": "points",
+    "reply": "${user} has ${user.points} ${pointsname}",
+    "accessLevel": 100,
+    "type": "reply",
+    "cost": 0,
+    "cooldown": {
+      "global": 0,
+      "user": 5
+    },
+    "enabled": true,
+    "aliases": []
+  },
+  {
+    "_id": "584da5a4601791435f483e8d",
+    "updatedAt": "2016-12-11T19:14:44.760Z",
+    "createdAt": "2016-12-11T19:14:44.760Z",
+    "_user": "577c1d1b4d85915c2c121591",
+    "_username": "streamelements",
+    "command": "lastseen",
+    "reply": "${user} was last seen ${user.lastseen} ago and last active in Chat ${user.lastactive} ago. His last Message was: ${user.lastmessage}",
+    "accessLevel": 100,
+    "type": "reply",
+    "cost": 0,
+    "cooldown": {
+      "global": 5,
+      "user": 10
+    },
+    "enabled": true,
+    "aliases": [
+      "lastmessage",
+      "lastactive"
+    ]
+  },
+  {
+    "_id": "584da5b4601791435f483e92",
+    "updatedAt": "2016-12-11T19:15:00.149Z",
+    "createdAt": "2016-12-11T19:15:00.149Z",
+    "_user": "577c1d1b4d85915c2c121591",
+    "_username": "streamelements",
+    "command": "followers",
+    "reply": "We currently have ${channel.followers} Followers PogChamp",
+    "accessLevel": 100,
+    "type": "reply",
+    "cost": 0,
+    "cooldown": {
+      "global": 5,
+      "user": 10
+    },
+    "enabled": true,
+    "aliases": []
+  }
+]
+```
+
+## `GET /bot/commands/:id`
+
+Returns a single command
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X GET https://api.streamelements.com/kappa/v1/bot/commands/584da5a4601791435f483e8d
+```
+
+### Example Response
+
+```json
+{
+    "_id": "584da5a4601791435f483e8d",
+    "updatedAt": "2016-12-11T19:14:44.760Z",
+    "createdAt": "2016-12-11T19:14:44.760Z",
+    "_user": "577c1d1b4d85915c2c121591",
+    "_username": "streamelements",
+    "command": "lastseen",
+    "reply": "${user} was last seen ${user.lastseen} ago and last active in Chat ${user.lastactive} ago. His last Message was: ${user.lastmessage}",
+    "accessLevel": 100,
+    "type": "reply",
+    "cost": 0,
+    "cooldown": {
+      "global": 5,
+      "user": 10
+    },
+    "enabled": true,
+    "aliases": [
+      "lastmessage",
+      "lastactive"
+    ]
+}
+```
+
+### Error
+
+```json
+{
+  "statusCode": 404,
+  "error": "Not Found"
+}
+```
+
+## `POST /bot/commands`
+
+Create a new bot command
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X POST https://api.streamelements.com/kappa/v1/bot/commands \
+-D '{ "command": "points", "reply": "${user} has ${user.points} ${pointsname}" }'
+```
+
+### Example Response
+
+```json
+{
+  "updatedAt": "2016-12-11T20:47:45.975Z",
+  "createdAt": "2016-12-11T20:47:45.975Z",
+  "_user": "577c1d1b4d85915c2c121591",
+  "_username": "streamelements",
+  "command": "points",
+  "reply": "${user} has ${user.points} ${pointsname}",
+  "_id": "584dbb71601791435f4843e1",
+  "accessLevel": 100,
+  "type": "say",
+  "cost": 0,
+  "cooldown": {
+    "global": 5,
+    "user": 15
+  },
+  "enabled": true,
+  "aliases": []
+}
+
+```
+
+### Error
+
+```json
+{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "Validation Error",
+  "details": [
+    {
+      "path": "command",
+      "message": "\"command\" is required"
+    },
+    {
+      "path": "reply",
+      "message": "\"reply\" is required"
+    }
+  ]
+}
+```
+
+If the command already exists.
+
+```json
+{
+  "statusCode": 409,
+  "error": "Conflict",
+  "message": "Command points already exists"
+}
+```
+
+## `PUT /bot/commands/:id`
+
+Update the command by passing the id
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X PUT https://api.streamelements.com/kappa/v1/bot/commands/584dbb71601791435f4843e1 \
+-D '{ "command": "points", "reply": "${user} has ${user.points} ${pointsname}", "accessLevel" : "500"}'
+```
+
+### Parameters
+
+|Parameter|Type|Required|Description|
+|------|------|------|-----------|
+|`command`|String|Required|The command’s unique name|
+|`reply`|String|Required|The message that will get sent once the command is called.|
+
+### Example Response
+
+```json
+{
+  "_id": "584dbb71601791435f4843e1",
+  "updatedAt": "2016-12-11T21:36:49.145Z",
+  "createdAt": "2016-12-11T20:47:45.975Z",
+  "_user": "577c1d1b4d85915c2c121591",
+  "_username": "streamelements",
+  "command": "points",
+  "reply": "${user} has ${user.points} ${pointsname}",
+  "accessLevel": 500,
+  "type": "say",
+  "cost": 0,
+  "cooldown": {
+    "global": 5,
+    "user": 15
+  },
+  "enabled": true,
+  "aliases": []
+}
+```
+
+### Error
+
+```json
+{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "Validation Error",
+  "details": [
+    {
+      "path": "command",
+      "message": "\"command\" is required"
+    }
+  ]
+}
+```
+
+## `DELETE /bot/commands/:id`
+
+Delete a command by the id
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X DELETE https://api.streamelements.com/kappa/v1/bot/commands/584dbb71601791435f4843e1
+```
+
+### Example Response
+
+```json
+{
+  "_id": "584dbb71601791435f4843e1",
+  "updatedAt": "2016-12-11T21:51:43.368Z",
+  "createdAt": "2016-12-11T21:51:43.368Z",
+  "_user": "577c1d1b4d85915c2c121591",
+  "_username": "streamelements",
+  "command": "points",
+  "reply": "${user} has ${user.points} ${pointsname}",
+  "accessLevel": 500,
+  "type": "say",
+  "cost": 0,
+  "cooldown": {
+    "global": 5,
+    "user": 15
+  },
+  "enabled": true,
+  "aliases": []
+} 
+```
+
+### Error
 
 ```json
 {

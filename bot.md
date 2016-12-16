@@ -199,7 +199,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 ## `POST /bot/levels`
 
-Create a new permission for the current channel
+Create a new permission for the current channel.
 
 ### Parameters
 
@@ -311,7 +311,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 ## `GET /bot/commands`
 
-Returns an array of commands
+Returns an array of commands.
 
 ### Example Request
 
@@ -386,7 +386,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 ## `GET /bot/commands/:id`
 
-Returns a single command
+Returns a single command.
 
 ### Example Request
 
@@ -432,7 +432,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 ## `POST /bot/commands`
 
-Create a new bot command
+Create a new bot command.
 
 ### Example Request
 
@@ -498,7 +498,7 @@ If the command already exists.
 
 ## `PUT /bot/commands/:id`
 
-Update the command by passing the id
+Update the command by passing the id.
 
 ### Example Request
 
@@ -556,7 +556,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 ## `DELETE /bot/commands/:id`
 
-Delete a command by the id
+Delete a command by the id.
 
 ### Example Request
 
@@ -774,7 +774,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 
 ## `POST /bot/timers`
 
-Create a new timer
+Create a new timer.
 
 ### Example Request
 

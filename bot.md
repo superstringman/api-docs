@@ -596,3 +596,267 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
   "error": "Not Found"
 }
 ```
+
+# Timers
+
+## Overview
+|Endpoints|Description|
+|----------|----------|
+|[`GET /bot/timers`](#get-bottimers)|Returns an array of timers|
+|[`GET /bot/timers/:id`](#get-bottimersid)|Returns a single timer|
+|[`PUT /bot/timers/:id`](#put-bottimersid)|Update a single timer|
+|[`POST /bot/timers`](#post-bottimers)|Create a new timer|
+|[`DELETE /bot/timers/:id`](#delete-bottimersid)|Delete a single timer|
+
+### Properties
+
+|Fields|Type|Description|
+|------|------|------|-----------|
+|`enabled`|Boolean|The state of the timer ( default true )|
+|`message `|String|The response when the timer is triggered|
+|`name`|String|The name of the timer|
+|`chatLines`|Number|Minimum lines between the last timer and this timer ( default 0, minimum 0, maximum 5000 )|
+|`online`|Object|Contains information about the online timer|
+|`online.enabled`|Number|The state of the online timer ( default true )|
+|`online.interval`|Number|How frequently in minutes do you want this timer to appear in the chat ( default 3, minimum 1, maximum 120 )|
+|`offline`|Object|Contains information about the offline timer|
+|`offline.enabled`|Number|The state of the offline timer ( default true )|
+|`offline.interval`|Number|How frequently in minutes do you want this timer to appear in the chat ( default 3, minimum 1, maximum 120 )|
+
+## `GET /bot/timers`
+
+Returns an array of timers.
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X GET https://api.streamelements.com/kappa/v1/bot/timers
+```
+
+### Example Response
+
+```json
+[
+  {
+    "_id": "583f065112c67b3c01b96d33",
+    "updatedAt": "2016-11-30T17:03:13.956Z",
+    "createdAt": "2016-11-30T17:03:13.956Z",
+    "_user": "577c1d1b4d85915c2c121591",
+    "_username": "streamelements",
+    "name": "link",
+    "message": "/me check out the commands https://streamelements.com/streamelements/commands",
+    "chatLines": 5,
+    "offline": {
+      "interval": 30,
+      "enabled": true
+    },
+    "online": {
+      "interval": 5,
+      "enabled": true
+    },
+    "enabled": true
+  },
+  {
+    "_id": "58505d1a18e3a7493d17f26c",
+    "updatedAt": "2016-12-13T20:42:02.888Z",
+    "createdAt": "2016-12-13T20:42:02.888Z",
+    "_user": "577c1d1b4d85915c2c121591",
+    "_username": "streamelements",
+    "name": "leaderboard",
+    "message": "/me check out the leaderboard https://streamelements.com/streamelements/leaderboard",
+    "chatLines": 8,
+    "offline": {
+      "interval": 2,
+      "enabled": true
+    },
+    "online": {
+      "interval": 5,
+      "enabled": true
+    },
+    "enabled": true
+  }
+]
+```
+
+## `GET /bot/timers/:id`
+
+Returns a single timer.
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X GET https://api.streamelements.com/kappa/v1/bot/timers/58505d1a18e3a7493d17f26c 
+```
+
+### Example Response
+
+```json
+{
+  "_id": "58505d1a18e3a7493d17f26c",
+  "updatedAt": "2016-12-13T20:42:02.888Z",
+  "createdAt": "2016-12-13T20:42:02.888Z",
+  "_user": "577c1d1b4d85915c2c121591",
+  "_username": "streamelements",
+  "name": "leaderboard",
+  "message": "/me check out the leaderboard https://streamelements.com/streamelements/leaderboard",
+  "chatLines": 8,
+  "offline": {
+    "interval": 2,
+    "enabled": true
+  },
+  "online": {
+    "interval": 5,
+    "enabled": true
+  },
+  "enabled": true
+}
+```
+
+## `PUT /bot/timers/:id`
+
+Update a single timer.
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X PUT https://api.streamelements.com/kappa/v1/bot/timers/583f065112c67b3c01b96d33 \
+-D `{"name":"discord","message":"/me link to the discord https://discordapp.com/","chatLines":24}` 
+```
+
+```json
+{
+  "_id": "583f065112c67b3c01b96d33",
+  "updatedAt": "2016-12-13T22:03:39.164Z",
+  "createdAt": "2016-11-30T17:03:13.956Z",
+  "_user": "577c1d1b4d85915c2c121591",
+  "_username": "streamelements",
+  "name": "discord",
+  "message": "/me link to the discord https://discordapp.com/",
+  "chatLines": 24,
+  "offline": {
+    "interval": 30,
+    "enabled": true
+  },
+  "online": {
+    "interval": 5,
+    "enabled": true
+  },
+  "enabled": true
+}
+```
+
+### Errors 
+
+```json
+{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "Validation Error",
+  "details": [
+    {
+      "path": "name",
+      "message": "\"name\" is required"
+    },
+    {
+      "path": "chatLines",
+      "message": "\"chatLines\" is required"
+    },
+    {
+      "path": "message",
+      "message": "\"message\" is required"
+    }
+  ]
+} 
+```
+
+## `POST /bot/timers`
+
+Create a new timer
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X POST https://api.streamelements.com/kappa/v1/bot/timers \
+-D `{"name":"testing","message":"this is a test","chatLines":24,"offline":{"interval":10,"enabled":true},"online":{"interval":32,"enabled":true},"enabled":true}` 
+```
+
+### Example Response
+
+```json
+{
+  "updatedAt": "2016-12-13T21:39:37.955Z",
+  "createdAt": "2016-12-13T21:39:37.955Z",
+  "_user": "577c1d1b4d85915c2c121591",
+  "_username": "streamelements",
+  "name": "testing",
+  "message": "this is a test",
+  "_id": "58506a9918e3a7493d17f45e",
+  "chatLines": 24,
+  "offline": {
+    "interval": 10,
+    "enabled": true
+  },
+  "online": {
+    "interval": 32,
+    "enabled": true
+  },
+  "enabled": true
+} 
+```
+
+### Errors 
+
+```json
+{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "Validation Error",
+  "details": [
+    {
+      "path": "name",
+      "message": "\"name\" is required"
+    },
+    {
+      "path": "chatLines",
+      "message": "\"chatLines\" is required"
+    },
+    {
+      "path": "message",
+      "message": "\"message\" is required"
+    }
+  ]
+} 
+```
+
+## `DELETE /bot/timers/:id`
+
+Delete a single timer.
+
+### Example Request
+
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-X DELETE https://api.streamelements.com/kappa/v1/bot/timers/577c1d1b4d85915c2c121591
+```
+
+### Example Response
+
+```json
+{
+  "statusCode": 201,
+  "message": "Timer was deleted"
+}
+```
+
+### Errors
+
+```json
+{
+  "statusCode": 404,
+  "error": "Not Found"
+}
+```

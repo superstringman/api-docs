@@ -337,6 +337,14 @@ curl https://api.streamelements.com/kappa/v1/chatstats/top/133620
 
 Returns an object with a single emote
 
+
+### Parameters
+
+|Provider|Description|
+|------|-----------|
+|`twitch`|Twitch emotes|
+|`bttv`|Better twitch tv emotes|
+
 ### Example Request
 
 ```bash

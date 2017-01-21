@@ -1,4 +1,4 @@
-![api logo](https://stylerdev.io/s/54095.png "Nice API you got there ( ͡° ͜ʖ ͡° )")
+![api logo](https://i.imgur.com/FNOG9qa.png "Nice API you got there ( ͡° ͜ʖ ͡° )")
 # StreamElements API 1.0 API documentation <img src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0">
 
 ### Base url: [https://api.streamelements.com/kappa/v1](https://api.streamelements.com/kappa/v1)

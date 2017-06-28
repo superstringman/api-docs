@@ -612,7 +612,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 ### Properties
 
 |Fields|Type|Description|
-|------|------|------|-----------|
+|------|------|------|
 |`enabled`|Boolean|The state of the timer ( default true )|
 |`message `|String|The response when the timer is triggered|
 |`name`|String|The name of the timer|

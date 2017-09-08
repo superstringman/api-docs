@@ -132,8 +132,7 @@ Returns a list of alltime top *X* users in the channel.
 ### Example Request
 
 ```bash
-curl -H 'Authorization:Bearer JWT-TOKEN' \
--X GET https://api.streamelements.com/kappa/v1/points/nuuls/alltime/10
+curl -X GET https://api.streamelements.com/kappa/v1/points/nuuls/alltime/10
 ```
 
 ### Example Response
@@ -193,8 +192,7 @@ Returns a list of top *X* users in the channel.
 ### Example Request
 
 ```bash
-curl -H 'Authorization:Bearer JWT-TOKEN' \
--X GET https://api.streamelements.com/kappa/v1/points/nuuls/top/10
+curl -X GET https://api.streamelements.com/kappa/v1/points/nuuls/top/10
 ```
 
 ### Example Response
@@ -254,8 +252,7 @@ Get points for a user in a channel
 ### Example Request
 
 ```bash
-curl -H 'Authorization:Bearer JWT-TOKEN' \
--X GET https://api.streamelements.com/kappa/v1/points/stylerdev/nuuls
+curl -X GET https://api.streamelements.com/kappa/v1/points/stylerdev/nuuls
 ```
 
 ### Example Response

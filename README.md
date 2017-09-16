@@ -65,3 +65,4 @@ In addition to the status code, the HTTP body of the response will also contain 
 - [`Points`](points.md)
 - [`Sessions`](sessions.md)
 - [`Chatstats`](chatstats.md)
+- [`Store`](store.md)

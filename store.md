@@ -8,6 +8,7 @@
 |[`GET /store/:channel/items`](store.md#get-storechannelitems)| Returns a list of available items in the store. |
 |[`PUT /store/:channel/items/:itemid`](store.md#put-storechannelitemsitemid)| Change a store items details. |
 |[`POST /store/:channel/items`](store.md#post-storechannelitems)| Create a new store item. |
+|[`PUT /store/:channel/redemptions/:redemptionid`](store.md#put-storechannelredemptionsredemptionid)| Change a redemption, such as complete a pending redemption. |
 
 
 
@@ -332,5 +333,41 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
         "enabled": true,
         "identifier": "twitter_follow"
     }
+}
+```
+
+
+## `PUT /store/:channel/redemptions/:redemptionid`
+:key: Requires authentication  
+
+Change a redemption, such as complete a pending redemption.
+
+
+### Example Request  
+```bash
+curl -H 'Authorization:Bearer JWT-TOKEN' \
+-H 'content-type: applicaiton/json' \
+-X PUT -d'{
+	"completed": true
+}' https://api.streamelements.com/kappa/v1/store/:channel/redemptions/:redemptionid
+```
+
+
+### Example Response
+
+```json
+{
+    "rejected": false,
+    "_id": "59bd9bf4a408a9489c2ebb3c",
+    "updatedAt": "2017-09-16T21:52:22.636Z",
+    "createdAt": "2017-09-16T21:47:32.665Z",
+    "_user": "5984effbbca1d93b307d5469",
+    "redeemer": "59bd7a5cad43c8ec2fbae2e5",
+    "item": "59b5bc22bb84ae1f64debca4",
+    "input": [
+        "test3"
+    ],
+    "completed": true,
+    "redeemerType": "User"
 }
 ```

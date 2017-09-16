@@ -19,7 +19,7 @@ Returns a list of redemptions.
 ### Example Request  
 ```bash
 curl -H 'Authorization:Bearer JWT-TOKEN' \
--X GET https://api.streamelements.com/kappa/v1/store/channelname/redemptions
+-X GET https://api.streamelements.com/kappa/v1/store/:channel/redemptions
 ```
 
 
@@ -58,7 +58,7 @@ Returns a list of latest 25 redemptions with a pending state.
 ### Example Request  
 ```bash
 curl -H 'Authorization:Bearer JWT-TOKEN' \
--X GET https://api.streamelements.com/kappa/v1/store/channelname/redemptions?limit=25&pending=true
+-X GET https://api.streamelements.com/kappa/v1/store/:channel/redemptions?limit=25&pending=true
 ```
 
 
@@ -105,7 +105,7 @@ Returns a list of available items in the store.
 ### Example Request  
 ```bash
 curl -H 'Authorization:Bearer JWT-TOKEN' \
--X GET https://api.streamelements.com/kappa/v1/store/channelname/items
+-X GET https://api.streamelements.com/kappa/v1/store/:channel/items
 ```
 
 

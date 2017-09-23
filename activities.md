@@ -34,7 +34,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 [
   {
     "_id": "577c1d1b4d85915c2c121592",
-    "_username": "streamelements",
+    "_user": "577d1d1b4d85915c2c121593",
     "type": "follow",
     "data": {
      "username": "random"
@@ -43,7 +43,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
   },
   {
     "_id": "577c1d1b4d85915c2c121593",
-    "_username": "streamelements",
+    "_user": "577d1d1b4d85915c2c121593",
     "type": "subscriber",
     "data": {
       "username": "user",
@@ -73,7 +73,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 ```json
 {
   "_id": "577c1d1b4d85915c2c121593",
-  "_username": "streamelements",
+  "_user": "577d1d1b4d85915c2c121593",
   "type": "subscriber",
   "data": {
     "username": "user",

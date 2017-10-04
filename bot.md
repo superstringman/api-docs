@@ -19,6 +19,7 @@ curl -H 'Authorization:Bearer JWT-TOKEN' \
 {
   "bot": {
     "_user": "577c1d1b4d85915c2c121591",
+    "mod": false,
     "muted": false,
     "joined": true,
     "name": "streamelements",
